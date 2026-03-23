@@ -35,10 +35,10 @@ models/*.pt
 *.bin
 
 # Output files
-result_page.png
-*.png
-*.jpg
-*.jpeg
+# result_page.png
+# *.png
+# *.jpg
+# *.jpeg
 
 # IDE
 .vscode/

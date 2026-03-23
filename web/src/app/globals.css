@@ -1,0 +1,334 @@
+@import "tailwindcss";
+
+/* ── Retro Comic Pop-Art Design Tokens ─────────────────────────────── */
+:root {
+  --manga-primary: #D82C40;
+  /* Retro Cherry Red */
+  --manga-primary-hover: #E0314A;
+  --manga-secondary: #259695;
+  /* Vintage Teal */
+  --manga-accent: #E8BB45;
+  /* Golden Yellow */
+
+  --manga-bg: #111010;
+  /* Very deep warm gray/black */
+  --manga-surface: #1C1B1B;
+  /* Slightly lighter surface */
+  --manga-surface-hover: #2A2828;
+
+  --manga-text: #F3F1ED;
+  /* Off-white paper text */
+  --manga-text-muted: #A8A49C;
+
+  --manga-border: #3A3636;
+  --manga-border-hover: #5A5454;
+
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+
+  /* Aliases for backwards compatibility with old components */
+  --manga-red: var(--manga-primary);
+  --manga-red-dark: var(--manga-primary-hover);
+  --manga-yellow: var(--manga-accent);
+  --manga-cream: var(--manga-bg);
+  --manga-black: var(--manga-surface);
+  --manga-dark: var(--manga-bg);
+  --manga-blue: var(--manga-secondary);
+  --manga-purple: var(--manga-primary);
+  --manga-white: var(--manga-text);
+  --manga-gray: var(--manga-surface-hover);
+  --manga-gray-dark: var(--manga-text-muted);
+
+  --font-display: "Impact", "Arial Black", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+/* ── Base Reset & Typography ──────────────────────────────────── */
+* {
+  box-sizing: border-box;
+}
+
+
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--manga-bg);
+  background-image:
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E"),
+    radial-gradient(circle at center, #1C1B1B 0%, #111010 100%);
+  color: var(--manga-text);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--manga-text);
+}
+
+h1 {
+  font-size: 3.5rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+
+/* ── Compatibility Utility Classes (Now Sleek) ────────────────────────────── */
+.brutal-border {
+  border: 1px solid var(--manga-border);
+}
+
+.brutal-border-thick {
+  border: 1px solid var(--manga-border);
+  border-bottom: 1px solid var(--manga-border) !important;
+}
+
+.brutal-shadow,
+.brutal-shadow-lg,
+.brutal-shadow-red,
+.brutal-shadow-yellow {
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* ── Button Styles ────────────────────────────────────────────── */
+.btn-brutal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.8rem 2rem;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1.1rem;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  text-decoration: none;
+  border: none;
+}
+
+.btn-brutal:hover {
+  transform: scale(1.05);
+}
+
+.btn-brutal:active {
+  transform: scale(0.95);
+}
+
+.btn-brutal-primary {
+  background: var(--manga-primary);
+  color: var(--manga-bg);
+  box-shadow: 0 4px 14px 0 rgba(216, 44, 64, 0.4);
+}
+
+.btn-brutal-primary:hover {
+  background: var(--manga-primary-hover);
+  box-shadow: 0 6px 20px rgba(216, 44, 64, 0.6);
+}
+
+.btn-brutal-secondary {
+  background: var(--manga-secondary);
+  color: var(--manga-bg);
+}
+
+.btn-brutal-secondary:hover {
+  background: #207A76;
+}
+
+.btn-brutal-dark {
+  background: var(--manga-surface);
+  color: var(--manga-text);
+  border: 2px solid var(--manga-border);
+}
+
+.btn-brutal-outline {
+  background: transparent;
+  color: var(--manga-text);
+  border: 1px solid var(--manga-border);
+}
+
+.btn-brutal-outline:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* ── Card Styles ──────────────────────────────────────────────── */
+.card-brutal {
+  background: var(--manga-surface);
+  border: 4px solid var(--manga-bg);
+  border-radius: var(--radius-md);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+  transition: all 0.2s ease;
+}
+
+.card-brutal:hover {
+  border-color: var(--manga-primary);
+  box-shadow: 0 10px 40px rgba(216, 44, 64, 0.15);
+}
+
+/* ── Badge Styles ─────────────────────────────────────────────── */
+.badge-brutal {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem 0.6rem;
+  font-family: var(--font-display);
+  font-weight: normal;
+  letter-spacing: 0.05em;
+  font-size: 0.85rem;
+  border-radius: 9999px;
+  background: transparent !important;
+  color: var(--manga-accent) !important;
+  border: 2px solid var(--manga-accent) !important;
+  backdrop-filter: blur(8px);
+}
+
+/* ── Input Styles ─────────────────────────────────────────────── */
+.input-brutal {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  border: 1px solid var(--manga-border);
+  border-radius: var(--radius-sm);
+  background: var(--manga-bg);
+  color: var(--manga-text);
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.input-brutal:focus {
+  border-color: var(--manga-primary);
+  box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.2);
+}
+
+/* ── Animations ───────────────────────────────────────────────── */
+@keyframes skeleton-pulse {
+
+  0%,
+  100% {
+    opacity: 0.2;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes bubble-glow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 5px rgba(139, 92, 246, 0.3);
+  }
+
+  50% {
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.6);
+  }
+}
+
+@keyframes text-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-skeleton {
+  animation: skeleton-pulse 1.5s ease-in-out infinite;
+}
+
+.animate-bubble-glow {
+  animation: bubble-glow 2s ease-in-out infinite;
+}
+
+.animate-text-reveal {
+  animation: text-reveal 0.3s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* ── Scrollbar ────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--manga-surface-hover);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--manga-text-muted);
+}
+
+/* ── Drop Zone ────────────────────────────────────────────────── */
+.drop-zone {
+  border: 2px dashed var(--manga-border);
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: var(--radius-lg);
+  transition: all 0.2s ease;
+}
+
+.drop-zone.active {
+  border-color: var(--manga-primary);
+  background: rgba(139, 92, 246, 0.05);
+  box-shadow: 0 0 30px rgba(139, 92, 246, 0.1);
+}

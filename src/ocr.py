@@ -15,7 +15,7 @@ class MangaReader:
         Using force_cpu=False to use CUDA if available by default in manga-ocr implementation
         or relying on PyTorch default behavior.
         """
-        logger.info("Loading MangaOCR model...")
+        logger.info("Loading MangaOCR model")
         self.mocr = MangaOcr()
 
     def process(self, image_crop: Image.Image) -> str:
