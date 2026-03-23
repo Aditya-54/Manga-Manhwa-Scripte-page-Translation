@@ -15,13 +15,11 @@ MangaScribe is a high-performance computer vision and AI translation pipeline de
 
 ---
 
-## The Evolution of MangaScribe
 
-We are excited to announce **MangaScribe v2.0**, a massive leap forward from our original CLI tool. By shifting to a full-stack web architecture, MangaScribe v2 delivers the speed, precision, and ease of use demanded by modern open-source localization projects.
 
 ### Performance & Feature Comparison
 
-| Capability | MangaScribe v1 (Legacy) | MangaScribe v2 (Current) |
+| Capability | MangaScribe v1 | MangaScribe v2 (Current) |
 |---|---|---|
 | **Architecture** | Python CLI Script | Full-Stack Web App (Next.js + FastAPI) |
 | **User Interface** | Terminal Commands | Interactive Web Studio (Drag & Drop) |
