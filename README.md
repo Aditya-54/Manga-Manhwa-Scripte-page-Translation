@@ -118,7 +118,7 @@ Navigate to `http://localhost:3000` to launch the Translation Studio. Upload an 
 
 ## License & Contribution
 
-MangaScribe is open-source software. Contributions are actively encouraged. If you encounter bugs, have feature requests, or wish to contribute to the core pipeline, please open an Issue or submit a Pull Request.
+
 
 To contribute:
 1. Fork the repository
