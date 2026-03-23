@@ -1,34 +1,55 @@
-# MangaScribe
+<div align="center">
+  <h1>MangaScribe</h1>
+  <p>
+    <b>State-of-the-Art (SOTA) Context-Aware Manga & Manhwa Localization Pipeline</b>
+  </p>
+  <p>
+    <a href="https://github.com/Aditya-54/Manga-Manhwa-Scripte-page-Translation"><img alt="version" src="https://img.shields.io/badge/version-v2.0-blue.svg"></a>
+    <a href="https://nextjs.org"><img alt="Next.js" src="https://img.shields.io/badge/Next.js-16.2-black?logo=next.js"></a>
+    <a href="https://fastapi.tiangolo.com"><img alt="FastAPI" src="https://img.shields.io/badge/FastAPI-0.100+-009688?logo=fastapi"></a>
+    <a href="https://lingo.dev"><img alt="Lingo.dev" src="https://img.shields.io/badge/AI_Translation-Lingo.dev-yellow"></a>
+  </p>
+</div>
 
-MangaScribe is an AI-powered manga and manhwa scanlation pipeline. It seamlessly handles speech bubble detection, optical character recognition (OCR), context-aware translation, image inpainting (cleaning), and text typesetting. 
-
-## MangaScribe v1 (Legacy CLI)
-
-The original version of MangaScribe was built as a pure Python Command Line Interface (CLI) application. Its primary goal was to automate the tedious process of manga translation using entirely local models.
-
-### Key Features of v1:
-*   **Local Processing:** Relied heavily on local models like YOLOv8 for bubble detection and MangaOCR for text extraction.
-*   **Generic Translation:** Used local LLMs (via Ollama) for basic translation, which often resulted in flat or literal interpretations.
-*   **Automated Inpainting:** Integrated Simple LaMa and OpenCV to remove original Japanese text from the art.
-*   **Basic Typesetting:** Rendered the translated English text back into the speech bubbles using Pillow.
-*   **CLI Interface:** Users interacted with the pipeline step-by-step or entirely automatically via terminal commands.
+MangaScribe is a high-performance computer vision and AI translation pipeline developed for high-quality manga and manhwa scanlation. It incorporates YOLOv8 object detection, advanced Optical Character Recognition (OCR), LaMa neural inpainting, and Lingo.dev context-aware AI translation to deliver unparalleled localization natively into English and Hindi.
 
 ---
 
-## MangaScribe v2 (Current)
+## The Evolution of MangaScribe
 
-MangaScribe v2 completely overhauls the architecture into a full-stack web application, bringing professional-grade localization tools and a stunning graphic interface directly to the user's browser.
+We are excited to announce **MangaScribe v2.0**, a massive leap forward from our original CLI tool. By shifting to a full-stack web architecture, MangaScribe v2 delivers the speed, precision, and ease of use demanded by modern open-source localization projects.
 
-### What We Built in v2:
-*   **Full-Stack Architecture:** Transitioned from a standalone script to a robust FastAPI Python backend and a modern Next.js React frontend.
-*   **Web Translation Studio:** A dedicated web dashboard allowing users to drag and drop manga or manhwa pages, view detected bubbles interactively, and process them in real-time.
-*   **Lingo.dev Integration:** Replaced the generic local translation with the Lingo.dev SDK. This enables context-aware translations utilizing MCP-style prompts to preserve character tone, emotional intensity, and series specific terminology.
-*   **Native Localization Support:** Added dedicated support for both English and Hindi, demonstrating the ability to craft powerful, native-sounding localizations rather than direct literal translations.
-*   **Narration Engine:** Integrated the Web Speech API to synthetically narrate the translated text while synchronously highlighting the active speech bubbles.
-*   **Retro Pop-Art UI:** Implemented a highly stylized, dark-mode retro comic aesthetic featuring thick borders, screentone background patterns, and vibrant accent colors (cherry red, golden yellow, vintage teal).
-*   **Automated End-to-End Rendering:** Users can click a single button to apply translations, clean the art, typeset the new language, and automatically download the finished localized image.
+### Performance & Feature Comparison
 
-### Pipeline Architecture
+| Capability | MangaScribe v1 (Legacy) | MangaScribe v2 (Current) |
+|---|---|---|
+| **Architecture** | Python CLI Script | Full-Stack Web App (Next.js + FastAPI) |
+| **User Interface** | Terminal Commands | Interactive Web Studio (Drag & Drop) |
+| **Translation Engine** | Local Fallback (Ollama) | Lingo.dev Context-Aware AI Engine |
+| **Localization Quality** | Generic & Literal | Native English & Hindi (Emotion Preserved) |
+| **Aesthetics** | N/A | Retro Pop-Art Comic Themed UI |
+| **Accessibility** | None | Real-time Web Speech Narration |
+| **Workflow** | Manual File Management | Automated End-to-End Image Download |
+
+---
+
+## Why MangaScribe?
+
+MangaScribe prioritizes real-world automation, character voice preservation, and accessibility. Unlike generic AI translators that strip the emotion and tone from characters, MangaScribe leverages Lingo.dev's MCP-style prompts to guarantee that an aggressive villain sounds menacing and a comedic sidekick sounds hilarious.
+
+### Core Technologies
+
+* **YOLOv8-based Detection:** Identifies speech bubbles across varied manga and manhwa panel layouts with near-perfect accuracy.
+* **MangaOCR Integration:** Specialized optical character recognition robust against vertical, horizontal, and stylized Japanese/Korean text.
+* **Contextual Localization:** Translates semantic meaning, tone, and genre-specific nuances.
+* **Smart Inpainting:** Uses Simple LaMa + OpenCV to cleanly erase source text while perfectly preserving background artwork and complex screentones.
+* **Auto-Typesetting:** Automatically word-wraps, centers, and outlines the localized text back into the original bubbles using Pillow.
+
+---
+
+## Pipeline Architecture
+
+Our modular inference and localization pipeline ensures maximum scalability and transparency at every step:
 
 ```mermaid
 flowchart LR
@@ -41,64 +62,70 @@ flowchart LR
     F --> G[Final Localized Image]
 ```
 
-## Getting Started
+---
+
+## Quickstart Installation
+
+We provide pre-configured setups for both the backend processing engine and the frontend web studio.
 
 ### Prerequisites
-*   Python 3.10+
-*   Node.js 18+
-*   Lingo.dev API Key (For context-aware translation)
+* Python 3.10+
+* Node.js 18+
+* [Lingo.dev API Key](https://lingo.dev) (Required for context-aware translation)
 
-### Installation
+### Step 1: Clone the Repository
+```bash
+git clone https://github.com/Aditya-54/Manga-Manhwa-Scripte-page-Translation.git
+cd Manga-Manhwa-Scripte-page-Translation
+```
 
-1.  **Clone the Repository**
-    ```bash
-    git clone https://github.com/Aditya-54/Manga-Manhwa-Scripte-page-Translation.git
-    cd Manga-Manhwa-Scripte-page-Translation
-    ```
+### Step 2: Backend Configuration
+Initialize the PyTorch framework, install dependencies, and download the YOLO weights:
+```bash
+pip install -r requirements.txt
+python download_model.py
+cp .env.example .env
+```
+*Note: Ensure your LINGODOTDEV_API_KEY is added to the `.env` file.*
 
-2.  **Backend Setup**
-    ```bash
-    pip install -r requirements.txt
-    python download_model.py
-    cp .env.example .env
-    ```
-    *Add your LINGODOTDEV_API_KEY to the `.env` file.*
+### Step 3: Frontend Configuration
+Initialize the Next.js visual dashboard:
+```bash
+cd web
+npm install
+cp .env.example .env.local
+```
+*Note: Ensure your LINGODOTDEV_API_KEY is added to the `.env.local` file.*
 
-3.  **Frontend Setup**
-    ```bash
-    cd web
-    npm install
-    cp .env.example .env.local
-    ```
-    *Add your LINGODOTDEV_API_KEY to `.env.local`.*
+---
 
-### Running the Application
+## Usage
 
-Start the backend and frontend servers in separate terminal instances:
+Use MangaScribe via the interactive web studio for real-time visualization, editing, and automated processing.
 
-**Terminal 1 (Backend):**
+**Start the Inference Backend (Terminal 1):**
 ```bash
 python api_server.py
 ```
 
-**Terminal 2 (Frontend):**
+**Start the Web Studio (Terminal 2):**
 ```bash
 cd web
 npm run dev
 ```
 
-Navigate to `http://localhost:3000` in your web browser to open the Translation Studio.
+Navigate to `http://localhost:3000` to launch the Translation Studio. Upload an image, select your target language (English or Hindi), specify a context prompt, and let the pipeline run.
 
-## Technology Stack
+---
 
-*   **Detection:** YOLOv8 (comic-speech-bubble-detector)
-*   **OCR:** MangaOCR
-*   **Translation:** Lingo.dev SDK
-*   **Cleaning:** Simple LaMa Inpainting + OpenCV
-*   **Typesetting:** Pillow
-*   **Backend:** FastAPI + Uvicorn
-*   **Frontend:** Next.js 16 + TypeScript + Tailwind CSS 4
+## License & Contribution
 
-## Contributing
+MangaScribe is open-source software. Contributions are actively encouraged. If you encounter bugs, have feature requests, or wish to contribute to the core pipeline, please open an Issue or submit a Pull Request.
 
-Contributions to improve the pipeline, add new language support, or enhance the web UI are immensely welcome. Please open an issue or submit a pull request for review.
+To contribute:
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+```
